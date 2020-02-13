@@ -1,0 +1,36 @@
+$filePath: "../../../static/";
+
+@font-face {
+    font-family: 'SkModernist';
+    src: url($filePath+'fonts/sk-modernist-regular.eot');
+    src: url($filePath+'fonts/sk-modernist-regular.eot') format('embedded-opentype'),
+        url($filePath+'fonts/sk-modernist-regular.woff2') format('woff2'),
+        url($filePath+'fonts/sk-modernist-regular.woff') format('woff'),
+        url($filePath+'fonts/sk-modernist-regular.ttf') format('truetype'),
+        url($filePath+'fonts/sk-modernist-regular.otf') format('opentype'),
+        url($filePath+'fonts/sk-modernist-regular.svg') format('svg');
+    font-weight: $normal;
+}
+
+@font-face {
+    font-family: 'SkModernist';
+    src: url($filePath+'fonts/sk-modernist-bold.eot');
+    src: url($filePath+'fonts/sk-modernist-bold.eot') format('embedded-opentype'),
+        url($filePath+'fonts/sk-modernist-bold.woff2') format('woff2'),
+        url($filePath+'fonts/sk-modernist-bold.woff') format('woff'),
+        url($filePath+'fonts/sk-modernist-bold.ttf') format('truetype'),
+        url($filePath+'fonts/sk-modernist-bold.otf') format('opentype'),
+        url($filePath+'fonts/sk-modernist-bold.svg') format('svg');
+    font-weight: $bold;
+}
+
+@font-face {
+    font-family: 'Freight-BigBook';
+    src: url($filePath+'fonts/Freight-BigBook.eot');
+    src: url($filePath+'fonts/Freight-BigBook.eot') format('embedded-opentype'),
+        url($filePath+'fonts/Freight-BigBook.woff2') format('woff2'),
+        url($filePath+'fonts/Freight-BigBook.woff') format('woff'),
+        url($filePath+'fonts/Freight-BigBook.ttf') format('truetype'),
+        url($filePath+'fonts/Freight-BigBook.otf') format('opentype'),
+        url($filePath+'fonts/Freight-BigBook.svg') format('svg');
+}

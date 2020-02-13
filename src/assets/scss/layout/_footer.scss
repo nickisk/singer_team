@@ -1,0 +1,45 @@
+footer {
+    background-color: $color-primary;
+    padding-top: 70px;
+
+    .flex {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+    * {
+        color: $color-white;
+    }
+
+    .colmn-box {
+        margin-bottom: 60px;
+    }
+
+    li {
+        list-style: none;
+        margin-bottom: 15px;
+    }
+
+    .footer-brand {
+        font-size: 40px;
+        color: $color-white;
+        text-transform: capitalize;
+    }
+
+    .privacy-nav {
+        li {
+            display: inline-block;
+            margin-bottom: 0;
+            padding: 0px 15px;
+
+            &:not(:first-of-type) {
+                border-left: solid 1px $color-white;
+            }
+
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+}

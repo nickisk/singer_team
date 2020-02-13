@@ -1,38 +1,37 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import Hero from '../components/hero'
-import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
+import '../assets/scss/style.scss';
 
-class RootIndex extends React.Component {
-  render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
+class RootIndex extends Component {
+	render() {
+		console.log(this.props.data.allContentfulPage.edges[0].node.blocks[0]);
+		const sectionDetail = this.props.data.allContentfulPage.edges[0].node.blocks[0];
+		return (
+			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+				<div className="banner-section">
+					<div className="text-bar">
+						<h2>{sectionDetail.blockHeading}</h2>
+					</div>
+					<div className="flex align-center space-between">
+						<div className="colmn-text">
+							<div
+								dangerouslySetInnerHTML={{
+									__html: sectionDetail.contentType[0].content.childMarkdownRemark.html
 
-    return (
-      <Layout location={this.props.location} >
-        <div style={{ background: '#fff' }}>
-          <Helmet title={siteTitle} />
-          <Hero data={author.node} />
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        </div>
-      </Layout>
-    )
-  }
+								}} />
+							<a href={sectionDetail.contentType[0].link.url} className="btn-arrow">{sectionDetail.contentType[0].link.title}</a>
+						</div>
+						<figure>
+							<img src={sectionDetail.contentType[1].image.fluid.src} alt="hero image" />
+						</figure>
+					</div>
+				</div>
+			</DefaultLayout>
+		)
+	}
 }
 
 export default RootIndex
@@ -43,47 +42,73 @@ export const pageQuery = graphql`
       siteMetadata {
         title
       }
-    }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-             ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-    allContentfulPerson(filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-        }
-      }
-    }
+	}
+	allContentfulLayout {
+		edges {
+		  node {
+			footer {
+			  footerNavigation {
+				title
+				url
+			  }
+			  footerLogo {
+				title
+				url
+			  }
+			  seconderyNavigation {
+				title
+				url
+			  }
+			  copyright
+			}
+			header {
+			  leftNavigation {
+				title
+				url
+			  }
+			  logo {
+				title
+				url
+			  }
+			  rightNavigation {
+				title
+				url
+			  }
+			}
+		  }
+		}
+	  }
+	  allContentfulPage {
+		edges {
+		  node {
+			title
+			blocks {
+			  blockHeading
+			  title
+			  contentType {
+				... on ContentfulImageHolder {
+				  id
+				  image {
+					fluid {
+					  src
+					}
+				  }
+				}
+				... on ContentfulTextBlock {
+				  content {
+					childMarkdownRemark {
+					  html
+					}
+				  }
+				  link {
+					title
+					url
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	  }
   }
 `

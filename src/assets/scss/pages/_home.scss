@@ -1,0 +1,63 @@
+.banner-section {
+    position: relative;
+
+    &.about-section {
+        .text-bar {
+            bottom: -130px;
+            text-align: left;
+            left: -40px;
+            width: calc(100% + 40px);
+
+            h2 {
+                font-size: 350px;
+
+            }
+        }
+    }
+
+    .flex {
+        max-width: 1920px;
+        height: 100vh;
+    }
+
+    .text-bar {
+        position: absolute;
+        bottom: -150px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+
+        h2 {
+            font-size: 444px;
+            color: $color-primary;
+            font-family: 'Freight-BigBook';
+            font-weight: 400;
+            white-space: nowrap;
+            text-transform: capitalize;
+
+        }
+    }
+
+    .colmn-text {
+        padding-left: 60px;
+        max-width: 520px;
+
+        p {
+            margin-bottom: 30px;
+        }
+    }
+
+    figure {
+        width: 50%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+    }
+}
