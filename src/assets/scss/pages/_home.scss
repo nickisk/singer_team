@@ -2,16 +2,41 @@
     position: relative;
 
     &.about-section {
+
+        .colmn-text {
+            padding-left: 150px;
+            max-width: 35%;
+        }
+
         .text-bar {
-            bottom: -130px;
+            bottom: -100px;
             text-align: left;
             left: -40px;
             width: calc(100% + 40px);
 
             h2 {
-                font-size: 350px;
+                font-size: 260px;
+                text-align: center;
 
             }
+        }
+    }
+
+    &.meet-banner-section {
+        .text-bar {
+            bottom: -110px;
+
+            h2 {
+                font-size: 320px;
+            }
+        }
+
+        figure {
+            width: 100%;
+            max-width: 1100px;
+            height: auto;
+            margin: 0 auto;
+
         }
     }
 
@@ -31,7 +56,7 @@
         h2 {
             font-size: 444px;
             color: $color-primary;
-            font-family: 'Freight-BigBook';
+            font-family: $font-family-freight;
             font-weight: 400;
             white-space: nowrap;
             text-transform: capitalize;
@@ -43,8 +68,16 @@
         padding-left: 60px;
         max-width: 520px;
 
+        h1 {
+            font-size: 100px;
+            line-height: 1;
+            font-weight: 400;
+
+        }
+
         p {
             margin-bottom: 30px;
+            font-weight: 300;
         }
     }
 

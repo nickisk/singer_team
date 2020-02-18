@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
+import { graphql } from 'gatsby';
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import ImageTextBlock from '../components/blocks/imageTextBlock/imageTextBlock';
 import '../assets/scss/style.scss';
 
-class RootIndex extends Component {
+class AboutUs extends Component {
 	render() {
 		console.log(this.props.data.allContentfulPage.edges);
-		const sectionDetail = this.props.data.allContentfulPage.edges[0].node.blocks[0];
+		const sectionDetail = this.props.data.allContentfulPage.edges[1].node.blocks[0];
 		return (
 			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
-				<div className="banner-section">
+				<div className="banner-section about-section">
 					<div className="text-bar">
 						<h2>{sectionDetail.contentType[2].title}</h2>
 					</div>
@@ -23,10 +21,10 @@ class RootIndex extends Component {
 	}
 }
 
-export default RootIndex
+export default AboutUs
 
 export const pageQuery = graphql`
-  query HomeQuery {
+  query AboutQuery {
     site {
       siteMetadata {
         title

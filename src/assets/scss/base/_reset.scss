@@ -44,6 +44,10 @@ a {
 img {
     max-width: 100%;
     vertical-align: top;
+
+    figure & {
+        width: 100%;
+    }
 }
 
 sup {
@@ -161,5 +165,26 @@ ul.slick-dots {
         p {
             margin-bottom: 15px;
         }
+    }
+}
+
+
+.line-heading {
+    font-family: $font-family-freight;
+    font-size: 32px;
+    font-weight: 400;
+    color: $color-primary;
+    padding-left: 100px;
+    position: relative;
+    margin-bottom: 0;
+
+    &:after {
+        content: "";
+        @include center(vertical);
+        left: 0;
+        width: 80px;
+        height: 1px;
+        background-color: $color-primary;
+
     }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 
 export default ({ footerData }) => (
 	<footer>
-		{console.log(footerData)}
 		<div className="container">
 			<div className="flex">
 				<div className="colmn-box">
