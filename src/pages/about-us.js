@@ -7,7 +7,7 @@ import '../assets/scss/style.scss';
 class AboutUs extends Component {
 	render() {
 		console.log(this.props.data.allContentfulPage.edges);
-		const sectionDetail = this.props.data.allContentfulPage.edges[1].node.blocks[0];
+		const sectionDetail = this.props.data.allContentfulPage.edges[0].node.blocks[0];
 		return (
 			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 				<div className="banner-section about-section">
