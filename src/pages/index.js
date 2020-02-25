@@ -82,10 +82,16 @@ export const pageQuery = graphql`
 					}
 					contentBoxes {
 					  ... on ContentfulBannerTitle {
+						internal {
+							type
+						  }
 						id
 						title
 					  }
 					  ... on ContentfulImageHolder {
+						internal {
+							type
+						  }
 						id
 						image {
 						  fluid {
@@ -94,6 +100,9 @@ export const pageQuery = graphql`
 						}
 					  }
 					  ... on ContentfulTextBlock {
+						internal {
+							type
+						  }
 						id
 						content {
 							childMarkdownRemark {
