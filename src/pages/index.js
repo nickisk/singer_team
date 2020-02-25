@@ -4,21 +4,20 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
 import ImageTextBlock from '../components/blocks/imageTextBlock/imageTextBlock';
+import BannerSection from '../components/blocks/bannerSection/bannerSection';
 import '../assets/scss/style.scss';
 
 class RootIndex extends Component {
 	render() {
-		console.log(this.props.data.allContentfulPage.edges);
-		const sectionDetail = this.props.data.allContentfulPage.edges[1].node.blocks[0];
+		console.log(this.props.data)
+		const sectionDetail = this.props.data.allContentfulNavigation.edges[0].node.page.blocks[0]
 		return (
 			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
-				<div className="banner-section">
-					<div className="text-bar">
-						<h2>{sectionDetail.contentType[2].title}</h2>
-					</div>
-					<ImageTextBlock innerContent={sectionDetail.contentType} />
+				<div className="contentful-block">
+					<BannerSection sectionDetail={sectionDetail} />
 				</div>
 			</DefaultLayout>
+
 		)
 	}
 }
@@ -32,6 +31,7 @@ export const pageQuery = graphql`
         title
       }
 	}
+
 	allContentfulLayout {
 		edges {
 		  node {
@@ -66,44 +66,52 @@ export const pageQuery = graphql`
 			}
 		  }
 		}
-	  }
-
-	  allContentfulPage {
-		edges {
-		  node {
-			title
-			blocks {
-			  title
-			  contentType {
-				... on ContentfulImageHolder {
-				  id
-				  image {
-					fluid {
-					  src
-					}
-				  }
-				  layoutType
-				}
-				... on ContentfulTextBlock {
-				  content {
-					childMarkdownRemark {
-					  html
-					}
-				  }
-				  link {
-					title
-					url
-				  }
-				  title
-				}
-				... on ContentfulBannerTitle {
+      }
+      
+      allContentfulNavigation(filter: {url: {eq: "/"}}) {
+        edges {
+			node {
+			  url
+			  page {
+				blocks {
+				  ... on ContentfulBannerBlock {
 					id
 					title
+					internal {
+					  type
+					}
+					contentBoxes {
+					  ... on ContentfulBannerTitle {
+						id
+						title
+					  }
+					  ... on ContentfulImageHolder {
+						id
+						image {
+						  fluid {
+							src
+						  }
+						}
+					  }
+					  ... on ContentfulTextBlock {
+						id
+						content {
+							childMarkdownRemark {
+							  html
+							}
+						  }
+						link {
+						  url
+						  title
+						}
+					  }
+					}
 				  }
+				}
 			  }
 			}
 		  }
-		}
-	  }
+      }
+
   }
 `

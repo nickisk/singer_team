@@ -1,11 +1,10 @@
 .team-section {
-    padding: 130px 0;
+    padding: 130px 0 90px;
     background-color: $color-secondery;
     z-index: 2;
     position: relative;
 
     .about-team-box {
-        margin-bottom: 90px;
 
         .line-heading {
             margin-top: 35px;
@@ -49,33 +48,42 @@
         }
     }
 
-    .pillars-box {
-        h3 {
-            font-size: 56px;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
 
-        .colmn-box {
-            width: calc(50% - 50px);
-            margin-top: 50px;
-
-            p {
-                font-weight: 300;
-            }
-        }
-    }
 
 }
 
+.pillars-box {
+    background-color: $color-secondery;
+    padding-bottom: 130px;
+
+    .line-heading {
+        width: 100%;
+    }
+
+    h3 {
+        font-size: 56px;
+        margin-bottom: 20px;
+        font-weight: 400;
+    }
+
+    .colmn-text {
+        width: calc(50% - 50px);
+        margin-top: 50px;
+
+        p {
+            font-weight: 300;
+        }
+    }
+}
+
 .founder-section {
-    padding: 100px 0;
+    padding: 100px 0 120px;
     position: relative;
 
     .section-heading {
         width: 100%;
         bottom: -90px;
-        ;
+        left: 0;
         position: absolute;
 
         h2 {
@@ -114,16 +122,24 @@
             font-weight: 300;
 
 
-            a {
-                display: block;
-                text-align: right;
-                margin-top: 10px;
+            // a {}
+        }
+
+        .btn-arrow {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            font-size: 22px;
+
+            &:after {
+                display: none;
             }
         }
+
     }
 }
 
-.agents-section {
+.accordion-block {
     background-color: $color-secondery;
     position: relative;
     z-index: 2;
@@ -151,28 +167,46 @@
     }
 
     .accordion-head {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        position: relative;
-        z-index: 1;
-        margin-right: 100px;
-        width: calc(100% + 100px);
 
-        &:after {
-            @include center(both);
-            background-color: $color-primary;
-            z-index: -1;
-            width: 100%;
-            height: 1px;
-            content: "";
+        .heading-box {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            margin-right: 100px;
+            width: calc(100% + 100px);
+
+            &:after {
+                @include center(both);
+                background-color: $color-primary;
+                z-index: -1;
+                width: 100%;
+                height: 2px;
+                content: "";
+            }
+
+            &:before {
+                content: "Open";
+                position: absolute;
+                right: 0;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                background-color: $color-secondery;
+                z-index: 2;
+                font-family: $font-family-body;
+                padding-left: 30px;
+            }
         }
+
+
 
         h3 {
             font-size: 58px;
@@ -180,12 +214,6 @@
             background-color: $color-secondery;
             padding-bottom: 20px;
             padding-right: 30px;
-        }
-
-        span {
-            background-color: $color-secondery;
-            padding-left: 30px;
-            display: inline-block;
         }
     }
 
