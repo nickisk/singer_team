@@ -1,24 +1,71 @@
 .team-section {
-    padding: 130px 0 90px;
+    padding: 130px 0 220px;
     background-color: $color-secondery;
+    margin-top: -90px;
     z-index: 2;
     position: relative;
+    @include breakpoint(xlarge) {
+        margin-top: 0;
+    }
+    @include breakpoint(large) {
+        padding: 130px 0;
+    }
+    @include breakpoint(xmedium) {
+        padding: 60px 0 80px;
+    }
 
     .about-team-box {
 
         .line-heading {
-            margin-top: 35px;
-            margin-left: -90px;
+            margin-left: -70px;
+            margin-bottom: 30px;
+            @include breakpoint(xlarge) {
+                margin-left: 0;
+            }
+            @include breakpoint(xmedium) {
+                margin-bottom: 10px;
+            }
         }
 
         .colmn-text {
             max-width: 565px;
+            position: relative;
+            z-index: 1;
+            @include breakpoint(large) {
+                max-width: unset;
+                width: 50%;
+            }
+            @include breakpoint(xmedium) {
+                width: calc(50% + 70px);
+            }
+            @include breakpoint(small) {
+                width: 100%;
+            }
 
             h2 {
                 font-size: 100px;
                 font-weight: 400;
-                margin-left: -90px;
+                margin-left: -70px;
                 margin-bottom: 50px;
+                @include breakpoint(xlarge) {
+                    font-size: 80px;
+                    margin-left: 0px;
+                    margin-bottom: 50px;
+                }
+                @include breakpoint(large) {
+                    font-size: 70px;
+                }
+                @include breakpoint(xmedium) {
+                    font-size: 50px;
+                    margin-bottom: 20px;
+                    max-width: 80%;
+                }
+                @include breakpoint(small) {
+                    max-width: 70%;
+                }
+                @include breakpoint(largeMobile) {
+                    max-width: 90%;
+                }
 
             }
 
@@ -31,14 +78,25 @@
         .colmn-img {
             position: absolute;
             right: 0;
-            top: 130px;
-            width: 700px;
+            top: 230px;
+            width: 675px;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
             -webkit-box-pack: justify;
             -ms-flex-pack: justify;
             justify-content: space-between;
+            @include breakpoint(large) {
+                width: 50%;
+            }
+            @include breakpoint(xmedium) {
+                top: 120px;
+            }
+            @include breakpoint(small) {
+                position: static;
+                width: 100%;
+                padding-top: 35px;
+            }
 
             figure {
                 width: calc(50% - 15px);
@@ -55,6 +113,21 @@
 .pillars-box {
     background-color: $color-secondery;
     padding-bottom: 130px;
+    @include breakpoint(xmedium) {
+        padding-bottom: 80px;
+    }
+    @include breakpoint(small) {
+        padding-bottom: 40px;
+    }
+
+    .flex {
+        @include breakpoint(xmedium) {
+            padding: 0 40px 0 60px;
+        }
+        @include breakpoint(small) {
+            padding: 0;
+        }
+    }
 
     .line-heading {
         width: 100%;
@@ -64,11 +137,22 @@
         font-size: 56px;
         margin-bottom: 20px;
         font-weight: 400;
+        @include breakpoint(xmedium) {
+            font-size: 36px;
+        }
     }
 
     .colmn-text {
         width: calc(50% - 50px);
         margin-top: 50px;
+        @include breakpoint(xmedium) {
+            width: calc(50% - 30px);
+            margin-top: 35px;
+        }
+        @include breakpoint(small) {
+            width: 100%;
+            margin-top: 25px;
+        }
 
         p {
             font-weight: 300;
@@ -79,25 +163,75 @@
 .founder-section {
     padding: 100px 0 120px;
     position: relative;
+    @include breakpoint(xmedium) {
+        padding: 80px 0 160px;
+    }
+    @include breakpoint(small) {
+        padding: 80px 0 100px;
+    }
 
     .section-heading {
-        width: 100%;
+        width: calc(100% + 60px);
         bottom: -90px;
-        left: 0;
+        left: -60px;
+        overflow: hidden;
         position: absolute;
+        @include breakpoint(xlarge) {
+            width: calc(100% + 45px);
+            bottom: -80px;
+            left: -45px;
+        }
+        @include breakpoint(large) {
+            width: calc(100% + 30px);
+            left: -30px;
+        }
+        @include breakpoint(xmedium) {
+            width: calc(100% + 20px);
+            left: -20px;
+            bottom: -50px;
+        }
+        @include breakpoint(largeMobile) {
+            width: calc(100% + 15px);
+            left: -15px;
+            bottom: -28px;
+        }
 
         h2 {
-            font-size: 280px;
+            font-size: 287px;
             color: $color-primary;
             font-family: $font-family-freight;
             text-align: center;
             white-space: nowrap;
             font-weight: 400;
+            letter-spacing: -10px;
+            @include breakpoint(xlarge) {
+                font-size: 240px;
+            }
+            @include breakpoint(large) {
+                font-size: 200px;
+                letter-spacing: -7px;
+            }
+            @include breakpoint(xmedium) {
+                font-size: 150px;
+                letter-spacing: -5px;
+            }
+            @include breakpoint(small) {
+                font-size: 120px;
+            }
+            @include breakpoint(largeMobile) {
+                font-size: 80px;
+            }
         }
     }
 
     .colmn-img {
         width: 40%;
+        @include breakpoint(xmedium) {
+            width: 50%;
+        }
+        @include breakpoint(small) {
+            width: 100%;
+        }
 
         img {
             width: 100%;
@@ -108,21 +242,37 @@
         padding-left: 80px;
         width: 60%;
         padding-top: 50px;
+        @include breakpoint(large) {
+            padding-left: 40px;
+        }
+        @include breakpoint(xmedium) {
+            width: 50%;
+            padding: 35px 0 0 40px;
+        }
+        @include breakpoint(small) {
+            width: 100%;
+            padding: 40px 0 0;
+        }
 
         h2 {
             font-size: 100px;
             margin-bottom: 50px;
             margin-top: 30px;
             font-weight: 400;
+            @include breakpoint(xmedium) {
+                font-size: 50px;
+                margin-bottom: 25px;
+                margin-top: 25px;
+            }
         }
 
         p {
             padding-left: 70px;
             line-height: 1.7;
             font-weight: 300;
-
-
-            // a {}
+            @include breakpoint(xmedium) {
+                padding-left: 0;
+            }
         }
 
         .btn-arrow {
@@ -130,6 +280,11 @@
             text-align: right;
             margin-top: 10px;
             font-size: 22px;
+            @include breakpoint(xmedium) {
+                text-align: left;
+                margin-top: 20px;
+                font-size: 18px;
+            }
 
             &:after {
                 display: none;
@@ -144,10 +299,19 @@
     position: relative;
     z-index: 2;
     padding: 130px 0 140px;
+    @include breakpoint(xmedium) {
+        padding: 70px 0 100px;
+    }
+    @include breakpoint(small) {
+        padding: 60px 0 130px;
+    }
 
     .line-heading {
-        margin-left: -80px;
+        margin-left: -50px;
         padding-left: 0;
+        @include breakpoint(xlarge) {
+            margin-left: 0;
+        }
 
         &:after {
             display: none;
@@ -156,11 +320,24 @@
 
     .accordion-section {
         margin-top: 60px;
+        padding-left: 40px;
+        @include breakpoint(xmedium) {
+            margin-top: 40px;
+            padding-left: 50px;
+            padding-right: 20px;
+        }
+        @include breakpoint(small) {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 }
 
 .accordion-section {
     .accordion-box {
+        @include breakpoint(small) {
+            position: relative;
+        }
         &:not(:last-of-type) {
             margin-bottom: 80px;
         }
@@ -180,29 +357,45 @@
             align-items: center;
             position: relative;
             z-index: 1;
-            margin-right: 100px;
-            width: calc(100% + 100px);
+            margin-right: 60px;
+            width: calc(100% + 60px);
+            @include breakpoint(xlarge) {
+                width: 100%;
+            }
+            @include breakpoint(small) {
+                position: static;
+            }
 
             &:after {
                 @include center(both);
                 background-color: $color-primary;
                 z-index: -1;
-                width: 100%;
+                width: 98%;
                 height: 2px;
                 content: "";
+                @include breakpoint(small) {
+                    top: calc(100% + 40px);
+                }
             }
 
             &:before {
                 content: "Open";
+                color: $color-primary;
+                font-size: 22px;
                 position: absolute;
                 right: 0;
                 top: 50%;
+                margin-top: -3px;
                 -webkit-transform: translateY(-50%);
                 transform: translateY(-50%);
                 background-color: $color-secondery;
                 z-index: 2;
                 font-family: $font-family-body;
                 padding-left: 30px;
+                text-transform: capitalize;
+                @include breakpoint(small) {
+                    top: calc(100% + 40px);
+                }
             }
         }
 
@@ -214,6 +407,10 @@
             background-color: $color-secondery;
             padding-bottom: 20px;
             padding-right: 30px;
+            @include breakpoint(xmedium) {
+                font-size: 44px;
+                padding-bottom: 10px;
+            }
         }
 
         &.active {
@@ -228,16 +425,42 @@
     .accordion-body {
         margin-top: 80px;
         display: none;
+        @include breakpoint(small) {
+            margin-top: 40px;
+        }
 
         .colmn-img {
             width: 25%;
-
+            @include breakpoint(large) {
+                width: 35%;
+            }
+            @include breakpoint(xmedium) {
+                width: 40%;
+            }
+            @include breakpoint(small) {
+                width: 100%;
+                padding: 0 60px;
+            }
         }
 
         .colmn-text {
             width: 75%;
             padding-left: 150px;
             padding-right: 100px;
+            @include breakpoint(large) {
+                width: 65%;
+                padding-left: 100px;
+                padding-right: 50px;
+            }
+            @include breakpoint(xmedium) {
+                width: 60%;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+            @include breakpoint(small) {
+                width: 100%;
+                padding: 80px 0 0px;
+            }
 
             p {
                 font-weight: 300;

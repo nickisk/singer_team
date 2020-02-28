@@ -5,11 +5,60 @@ header {
     width: 100%;
     z-index: 9;
 
+    .container {
+        @include breakpoint(xmedium) {
+            padding: 0px 15px;
+        }
+    }
+
     .navbar-brand {
         @include center(both);
         font-size: 35px;
         color: $color-primary;
         text-transform: capitalize;
+
+        @include breakpoint(xmedium) {
+            font-size: 26px;
+            top: 14px;
+            left: 0;
+            -webkit-transform: none;
+            transform: none;
+            position: relative;
+            z-index: 99;
+        }
+    }
+
+    .menu-toggle {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        display: none;
+        width: 35px;
+        height: 20px;
+
+
+        @include breakpoint(xmedium) {
+            display: inline-block;
+            position: absolute;
+            right: 15px;
+            z-index: 99;
+            top: 25px;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        .bar {
+            background-color: $color-primary;
+            display: block;
+            width: 100%;
+            height: 2px;
+
+            &:not(:first-child) {
+                margin-top: 7px;
+            }
+        }
     }
 
     .nav-group {
@@ -24,13 +73,53 @@ header {
         -ms-flex-align: center;
         align-items: center;
 
+        @include breakpoint(xmedium) {
+            z-index: -1;
+            background-color: $color-secondery;
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            max-width: 100%;
+            padding-top: 50px;
+            opacity: 0;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+
+            &.active {
+                opacity: 1;
+                z-index: 9;
+            }
+        }
+
         li {
             list-style: none;
             display: inline-block;
             padding: 25px 0;
 
+            @include breakpoint(xmedium) {
+                display: block;
+                padding: 0 0 20px;
+                text-align: center;
+
+                a {
+                    font-size: 20px;
+                }
+            }
+
             &:not(:last-of-type) {
                 padding-right: 60px;
+
+                @include breakpoint(xmedium) {
+                    padding-right: 0;
+                }
             }
 
             a {

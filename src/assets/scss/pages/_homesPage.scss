@@ -2,6 +2,19 @@
     position: relative;
     padding-bottom: 250px;
     padding-top: 180px;
+    @include breakpoint(large) {
+        padding-bottom: 200px;
+    }
+    @include breakpoint(xmedium) {
+        padding-bottom: 170px;
+        padding-top: 115px;
+    }
+    @include breakpoint(small) {
+        padding-bottom: 130px;
+    }
+    @include breakpoint(largeMobile) {
+        padding-bottom: 110px;
+    }
 
     .flex {
         height: auto;
@@ -12,6 +25,15 @@
         left: 0;
         bottom: -130px;
         position: absolute;
+        @include breakpoint(xlarge) {
+            bottom: -100px;
+        }
+        @include breakpoint(large) {
+            bottom: -85px;
+        }
+        @include breakpoint(xmedium) {
+            bottom: 10px;
+        }
 
         h2 {
             text-align: center;
@@ -21,6 +43,23 @@
             white-space: nowrap;
             font-weight: 400;
             letter-spacing: -15px;
+            @include breakpoint(xlarge) {
+                font-size: 315px;
+            }
+            @include breakpoint(large) {
+                font-size: 265px;
+            }
+            @include breakpoint(xmedium) {
+                font-size: 200px;
+                letter-spacing: -8px;
+            }
+            @include breakpoint(small) {
+                font-size: 160px
+            }
+            @include breakpoint(largeMobile) {
+                font-size: 100px;
+                letter-spacing: -4px;
+            }
 
         }
     }
@@ -44,6 +83,13 @@
     figure {
         width: 60%;
         height: auto;
+        @include breakpoint(xmedium) {
+            width: 100%;
+            padding: 0 60px;
+        }
+        @include breakpoint(small) {
+            padding: 0 15px;
+        }
     }
 
     .colmn-text {
@@ -53,25 +99,74 @@
         max-width: calc(600px + 40px);
         padding-right: 60px;
         padding-left: 0;
+        @include breakpoint(large) {
+            padding-right: 20px;
+        }
+        @include breakpoint(xmedium) {
+            padding: 70px 60px 0;
+            margin-left: auto;
+            width: 65%;
+        }
+        @include breakpoint(small) {
+            padding: 70px 20px 0;
+            margin-left: auto;
+            width: 100%;
+        }
 
         .inner-group {
             padding-left: 0;
         }
 
+        h4 {
+            @include breakpoint(large) {
+                margin-bottom: 20px;
+            }
+        }
+
         h2 {
             margin-bottom: 30px;
+            @include breakpoint(large) {
+                font-size: 60px;
+            }
+            @include breakpoint(xmedium) {
+                font-size: 50px;
+                max-width: 80%;
+            }
         }
 
         p {
             padding-left: 110px;
             margin-bottom: 30px;
+            @include breakpoint(large) {
+                padding-left: 80px;
+            }
+            @include breakpoint(xmedium) {
+                padding-left: 0;
+            }
         }
 
         .btn-arrow {
             padding-left: 110px;
+            @include breakpoint(large) {
+                padding-left: 80px;
+            }
+            @include breakpoint(xmedium) {
+                padding-left: 0;
+            }
         }
     }
 
+    .slick-dots {
+        @include breakpoint(xmedium) {
+            position: absolute;
+            width: 100%;
+            margin: 0px 0 -5px;
+            padding: 0;
+        }
+        @include breakpoint(largeMobile) {
+            margin: 0px 0 15px;
+        }
+    }
 
 }
 
@@ -80,12 +175,23 @@
     padding: 140px 0 80px;
     position: relative;
     z-index: 2;
+    @include breakpoint(xmedium) {
+        padding: 70px 0px 10px;
+    }
 
     .section-wrapper {
         max-width: 1440px;
         padding-left: 80px;
         padding-right: 40px;
         margin: 0 auto;
+        @include breakpoint(xmedium) {
+            padding-left: 35px;
+            padding-right: 35px;
+        }
+        @include breakpoint(largeMobile) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
     }
 
     .heading-box {
@@ -93,9 +199,23 @@
         margin-bottom: -40px;
         position: relative;
         z-index: 2;
+        @include breakpoint(xmedium) {
+            max-width: 300px;
+            margin-bottom: 50px;
+        }
+
+        h4 {
+            @include breakpoint(xmedium) {
+                margin-bottom: 20px;
+            }
+        }
 
         h2 {
             letter-spacing: 1px;
+            @include breakpoint(xmedium) {
+                font-size: 50px;
+                letter-spacing: 0;
+            }
         }
     }
 
@@ -109,10 +229,26 @@
         justify-content: space-between;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+        @include breakpoint(xlarge) {
+            padding-left: 230px;
+        }
+        @include breakpoint(large) {
+            padding-left: 160px;
+        }
+        @include breakpoint(xmedium) {
+            padding-left: 0;
+        }
 
         .box {
             width: calc(50% - 22.5px);
             margin-bottom: 60px;
+            @include breakpoint(xmedium) {
+                width: calc(50% - 12.5px);
+                margin-bottom: 40px;
+            }
+            @include breakpoint(largeMobile) {
+                width: 100%;
+            }
 
             figure {
                 margin-bottom: 20px;
@@ -135,12 +271,27 @@
                 font-family: $font-family-freight;
                 font-weight: 400;
                 margin-bottom: 5px;
+                @include breakpoint(large) {
+                    font-size: 38px;
+                }
+                @include breakpoint(xmedium) {
+                    font-size: 30px;
+                    margin-bottom: 10px;
+                }
 
             }
 
             .box-btn {
-                @include center(vertical);
+                position: absolute;
+                top: 18px;
                 right: 0;
+                @include breakpoint(large) {
+                    top: 12px;
+                }
+                @include breakpoint(xmedium) {
+                    top: 8px;
+                    width: 27px;                
+                }
             }
 
             ul {

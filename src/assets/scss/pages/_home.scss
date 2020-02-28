@@ -2,9 +2,14 @@
     position: relative;
 
     &.service-banner {
-        padding-top: 180px;
+        padding: 170px 0;
         background-color: #eaf4ff;
-        padding-bottom: 170px;
+        @include breakpoint(xmedium) {
+            padding: 135px 0;
+        }
+        @include breakpoint(small) {
+            padding: 100px 0 80px;
+        }
 
         .flex {
             display: block;
@@ -16,8 +21,14 @@
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
+            @include breakpoint(xmedium) {
+                width: 100%;
+            }
 
             figure {
+                @include breakpoint(xmedium) {
+                    padding: 0;
+                }
                 &:not(:last-of-type) {
                     margin-right: 20px;
                 }
@@ -29,9 +40,30 @@
             padding-right: 100px;
             margin-left: auto;
             margin-top: -80px;
+            @include breakpoint(xmedium) {
+                width: 100%;
+                padding-right: 60px;
+                margin-left: auto;
+                margin-top: 40px;
+                max-width: 410px;
+                padding-left: 0;
+            }
+            @include breakpoint(largeMobile) {
+                padding: 0 20px;
+            }
+
+            h4 {
+                @include breakpoint(xmedium) {
+                    margin-bottom: 20px;
+                }
+            }
 
             h2 {
                 margin-bottom: 40px;
+                @include breakpoint(xmedium) {
+                    max-width: 80%;
+                    margin-bottom: 30px;
+                }
             }
 
             .inner-group {
@@ -46,6 +78,17 @@
         .colmn-text {
             padding-left: 150px;
             max-width: 50%;
+            @include breakpoint(xlarge) {
+                padding-left: 100px;
+                padding-right: 50px;
+            }
+            @include breakpoint(xmedium) {
+                max-width: 100%;
+            }
+            @include breakpoint(small) {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
 
             .inner-group {
                 padding-left: 0;
@@ -54,30 +97,124 @@
 
             h1 {
                 margin-bottom: 30px;
+                @include breakpoint(xmedium) {
+                    margin-bottom: 20px;
+                    max-width: 280px;
+                    font-size: 50px;
+                }
             }
 
         }
 
         .section-heading {
-            bottom: -100px;
+            bottom: -106px;
             text-align: left;
             left: -40px;
             width: calc(100% + 40px);
+            @include breakpoint(xlarge) {
+                bottom: -95px;
+            }
+            @include breakpoint(large) {
+                bottom: -80px;
+                left: -30px;
+            }
+            @include breakpoint(xmedium) {
+                margin-bottom: -50px;
+                margin-left: -10px;
+            }
+            @include breakpoint(small) {
+                margin-bottom: -40px;
+                margin-left: 0px;
+            }
+            @include breakpoint(largeMobile) {
+                margin-bottom: -25px;
+            }
 
             h2 {
-                font-size: 260px;
+                font-size: 290px;
                 text-align: center;
-
+                letter-spacing: -10px;
+                @include breakpoint(xlarge) {
+                    font-size: 250px;
+                }
+                @include breakpoint(large) {
+                    font-size: 215px;
+                }
+                @include breakpoint(xmedium) {
+                    font-size: 150px;
+                    letter-spacing: -6px;
+                }
+                @include breakpoint(small) {
+                    font-size: 110px;
+                    letter-spacing: -3px;
+                }
+                @include breakpoint(largeMobile) {
+                    font-size: 74px;
+                    margin-left: -10px;
+                }
             }
         }
     }
 
     &.meet-banner-section {
+        @include breakpoint(xmedium) {
+            padding-top: 125px;
+        }
+        @include breakpoint(small) {
+            padding-top: 105px;
+        }
+
+        figure.full {
+            margin-bottom: -70px;
+            @include breakpoint(large) {
+                margin-bottom: 0;
+                padding: 0 70px;
+            }
+            @include breakpoint(small) {
+                padding: 0 15px;
+            }
+        }
         .section-heading {
-            bottom: -110px;
+            bottom: -20px;
+            @include breakpoint(xlarge) {
+                bottom: -90px;
+            }
+            @include breakpoint(xlarge) {
+                bottom: -80px;
+            }
+            @include breakpoint(xmedium) {
+                margin-bottom: -60px;
+                margin-top: -110px;
+            }
+            @include breakpoint(small) {
+                margin-bottom: -50px;
+                margin-top: -100px;
+            }
+            @include breakpoint(largeMobile) {
+                margin-bottom: -30px;
+                margin-top: -80px;
+            }
 
             h2 {
                 font-size: 320px;
+                letter-spacing: -13px;
+                @include breakpoint(xlarge) {
+                    font-size: 275px;
+                }
+                @include breakpoint(large) {
+                    font-size: 225px;
+                    letter-spacing: -7px;
+                }
+                @include breakpoint(xmedium) {
+                    font-size: 170px;
+                    letter-spacing: -6px;
+                }
+                @include breakpoint(small) {
+                    font-size: 135px;
+                }
+                @include breakpoint(largeMobile) {
+                    font-size: 92px;
+                }
             }
         }
 
@@ -86,6 +223,9 @@
     .flex {
         max-width: 1920px;
         height: 100vh;
+        @include breakpoint(xmedium) {
+            height: auto;
+        }
     }
 
     .section-heading {
@@ -95,24 +235,70 @@
         width: 100%;
         overflow: hidden;
         text-align: center;
-
+        @include breakpoint(xlarge) {
+            bottom: -120px;
+        }
+        @include breakpoint(large) {
+            bottom: -100px;
+        }
+        @include breakpoint(xmedium) {
+            margin-bottom: -85px;
+            position: static;
+            padding-top: 40px;
+        }
+        @include breakpoint(small) {
+            margin-bottom: -65px;
+        }
+        @include breakpoint(largeMobile) {
+            margin-bottom: -45px;
+        }
         h2 {
             font-size: 444px;
             color: $color-primary;
             font-family: $font-family-freight;
             font-weight: 400;
+            letter-spacing: -18px;
             white-space: nowrap;
             text-transform: capitalize;
+            @include breakpoint(xlarge) {
+                font-size: 360px;
+            }
+            @include breakpoint(large) {
+                font-size: 280px;
+                letter-spacing: -10px;
+            }
+            @include breakpoint(xmedium) {
+                font-size: 240px;
+                margin-left: -15px;
+            }
+            @include breakpoint(small) {
+                font-size: 180px;
+                margin-left: -18px;
+                letter-spacing: -5px;
+            }
+            @include breakpoint(largeMobile) {
+                font-size: 120px;
+            }
 
         }
     }
 
     .colmn-text {
         width: 50%;
-
+        @include breakpoint(xmedium) {
+            width: 100%;
+            padding: 0 115px;
+        }
+        @include breakpoint(small) {
+            padding: 0 20px;
+        }
         .inner-group {
             padding-left: 60px;
             max-width: 520px;
+            @include breakpoint(xmedium) {
+                padding-left: 0;
+                max-width: 390px;
+            }
         }
 
         h1 {
@@ -125,12 +311,23 @@
         p {
             margin-bottom: 30px;
             font-weight: 300;
+            @include breakpoint(xmedium) {
+                margin-bottom: 15px;
+            }
         }
     }
 
     figure {
         width: 50%;
         height: 100%;
+        @include breakpoint(xmedium) {
+            width: 100%;
+            order: -1;
+            padding: 0 115px 40px;
+        }
+        @include breakpoint(small) {
+            padding: 0 0 30px;
+        }
 
         img {
             width: 100%;

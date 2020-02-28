@@ -1,11 +1,23 @@
 footer {
     background-color: $color-primary;
     padding-top: 70px;
+    position: relative;
+    @include breakpoint(xmedium) {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
 
     .flex {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
+    }
+    .legal-box {
+        @include breakpoint(small) {
+            .colmn-box:nth-child(2) {
+                order: -1;
+            }
+        }
     }
 
     * {
@@ -14,6 +26,19 @@ footer {
 
     .colmn-box {
         margin-bottom: 60px;
+        @include breakpoint(xmedium) {
+            margin-bottom: 50px;
+        }
+        @include breakpoint(small) {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+        &.info {
+            padding-top: 30px;
+            @include breakpoint(small) {
+                padding-top: 0;
+            }
+        }
     }
 
     li {
@@ -25,6 +50,9 @@ footer {
         font-size: 40px;
         color: $color-white;
         text-transform: capitalize;
+        @include breakpoint(xmedium) {
+            font-size: 36px;
+        }
     }
 
     .privacy-nav {
@@ -32,7 +60,9 @@ footer {
             display: inline-block;
             margin-bottom: 0;
             padding: 0px 15px;
-
+            &:first-of-type {
+                padding-left: 0;
+            }
             &:not(:first-of-type) {
                 border-left: solid 1px $color-white;
             }
