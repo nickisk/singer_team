@@ -41,14 +41,24 @@
         }
     }
 
-    &.about-section {
+    &.about-banner {
 
         .colmn-text {
             padding-left: 150px;
-            max-width: 35%;
+            max-width: 50%;
+
+            .inner-group {
+                padding-left: 0;
+                max-width: 500px;
+            }
+
+            h1 {
+                margin-bottom: 30px;
+            }
+
         }
 
-        .text-bar {
+        .section-heading {
             bottom: -100px;
             text-align: left;
             left: -40px;
@@ -63,7 +73,7 @@
     }
 
     &.meet-banner-section {
-        .text-bar {
+        .section-heading {
             bottom: -110px;
 
             h2 {

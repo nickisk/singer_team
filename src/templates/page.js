@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout'
-import Layout from './layout';
 import BannerSection from '../components/blocks/bannerSection/bannerSection';
 import TeamSection from '../components/blocks/teamSection/teamSection';
 import PillarSection from '../components/blocks/pillarSection/pillarSection';
 import FounderSection from '../components/blocks/founderSection/founderSection';
 import AccordionSection from '../components/blocks/accordionSection/accordionSection';
-import PropertiesSection from '../components/blocks/propertiesSection/propertiesSection'
+import PropertiesSection from '../components/blocks/propertiesSection/propertiesSection';
+import ContactSection from '../components/blocks/contactSection/contactSection';
 // import Helmet from 'react-helmet'
 // import get from 'lodash/get'
 // import Img from 'gatsby-image'
@@ -18,7 +18,6 @@ import PropertiesSection from '../components/blocks/propertiesSection/properties
 class PageTemplate extends React.Component {
 	render() {
 		console.log(this.props.data)
-		const BannerDetail = this.props.data.allContentfulNavigation.edges[0].node.page.blocks[0];
 		const sectionDetails = this.props.data.allContentfulNavigation.edges[0].node.page.blocks;
 		const blocks = sectionDetails.map(detail => {
 			switch (detail.internal.type) {
@@ -35,7 +34,7 @@ class PageTemplate extends React.Component {
 				case "ContentfulPropertiesBlock":
 					return <PropertiesSection sectionDetail={detail} />
 				case "ContentfulContentSection":
-					return ''
+					return <ContactSection sectionDetail={detail} />
 				default:
 					return detail;
 			}
@@ -128,6 +127,47 @@ query PageQuery($slug: String!){
 					  type
 					}
 					contentBoxes {
+						... on ContentfulSliderSection{
+							id
+							internal {
+								type
+							}
+							slides{
+								internal {
+									type
+								}
+								slideContent {
+									... on ContentfulImageHolder {
+										internal {
+											type
+										}
+										id
+										layoutType
+										image {
+											fluid {
+												src
+											}
+										}
+									}
+									... on ContentfulTextBlock {
+										internal {
+											type
+										}
+										id
+										subHeading
+										content {
+											childMarkdownRemark {
+											html
+											}
+										}
+										link {
+										url
+										title
+										}
+									}
+								}
+							}
+						}
 						... on ContentfulSectionImage {
 							id
 							images {
@@ -395,27 +435,3 @@ query PageQuery($slug: String!){
   }
 
 `
-
-// export const pageQuery = graphql`
-//   query BlogPostBySlug($slug: String!) {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     contentfulBlogPost(slug: { eq: $slug }) {
-//       title
-//       publishDate(formatString: "MMMM Do, YYYY")
-//       heroImage {
-//         fluid(maxWidth: 1180, background: "rgb:000000") {
-//           ...GatsbyContentfulFluid_tracedSVG
-//         }
-//       }
-//       body {
-//         childMarkdownRemark {
-//           html
-//         }
-//       }
-//     }
-//   }
-// `

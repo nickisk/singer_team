@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby'
 
 const textBlock = (props) => (
 	<div className="colmn-text">
@@ -9,7 +10,7 @@ const textBlock = (props) => (
 					__html: props.data.content.childMarkdownRemark.html
 
 				}} />
-			{props.data.link ? <a href={props.data.link.url} className="btn-arrow">{props.data.link.title}</a> : null}
+			{props.data.link ? <Link to={props.data.link.url} className="btn-arrow">{props.data.link.title}</Link> : null}
 		</div>
 	</div>
 )
