@@ -33,7 +33,7 @@ class PageTemplate extends React.Component {
 					return <AccordionSection sectionDetail={detail} />
 				case "ContentfulPropertiesBlock":
 					return <PropertiesSection sectionDetail={detail} />
-				case "ContentfulContentSection":
+				case "ContentfulContactSection":
 					return <ContactSection sectionDetail={detail} />
 				default:
 					return detail;
@@ -101,7 +101,7 @@ query PageQuery($slug: String!){
 			  url
 			  page {
 				blocks {
-					... on ContentfulContentSection {
+					... on ContentfulContactSection {
 						id
 						subTitle
 						title
@@ -118,56 +118,56 @@ query PageQuery($slug: String!){
 						internal {
 						  type
 						}
-					  }
-				  ... on ContentfulBannerBlock {
-					id
-					title
-					class
-					internal {
-					  type
 					}
-					contentBoxes {
-						... on ContentfulSliderSection{
-							id
-							internal {
-								type
-							}
-							slides{
+				 	 ... on ContentfulBannerBlock {
+						id
+						title
+						class
+						internal {
+						type
+						}
+						contentBoxes {
+							... on ContentfulSliderSection{
+								id
 								internal {
 									type
 								}
-								slideContent {
-									... on ContentfulImageHolder {
-										internal {
-											type
-										}
-										id
-										layoutType
-										image {
-											fluid {
-												src
-											}
-										}
+								slides{
+									internal {
+										type
 									}
-									... on ContentfulTextBlock {
-										internal {
-											type
-										}
-										id
-										subHeading
-										content {
-											childMarkdownRemark {
-											html
+									slideContent {
+										... on ContentfulImageHolder {
+											internal {
+												type
+											}
+											id
+											layoutType
+											image {
+												fluid {
+													src
+												}
 											}
 										}
-										link {
-										url
-										title
+										... on ContentfulTextBlock {
+											internal {
+												type
+											}
+											id
+											subHeading
+											content {
+												childMarkdownRemark {
+												html
+												}
+											}
+											link {
+											url
+											title
+											}
 										}
 									}
 								}
 							}
-						}
 						... on ContentfulSectionImage {
 							id
 							images {

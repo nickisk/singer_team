@@ -1,0 +1,47 @@
+// Breakpoint
+$xsmall: 480px !default;
+$largeMobile: 576px !default;
+$small: 767px !default;
+$ipad: 768px !default;
+$xmedium: 992px !default;
+$large: 1200px !default;
+$xlarge: 1440px !default;
+$xxlarge: 1600px !default;
+$xxxlarge: 1800px !default;
+
+// Container
+$container: 1230px !default;
+$container-sm: 990px !default;
+
+// Font Family
+$font-family-body: 'SofiaPro';
+$font-family-freight: 'Freight-BigBook';
+
+// Typography
+$font-size-body: 18px !default;
+$font-size-h1: 40px !default;
+$font-size-h2: 100px !default;
+$font-size-h3: 30px !default;
+$font-size-h4: 24px !default;
+$font-size-h5: 18px !default;
+$font-size-h6: 14px !default;
+$font-size-xsm: 12px;
+$font-size-sm: 14px;
+$font-size-lg: 18px;
+
+// Font Weight
+$normal: normal;
+$bold: bold;
+
+//Font Style
+$italic: italic;
+
+// Colors
+$color-primary: #004d7f;
+$color-secondery: #eaf4ff;
+$color-gray: #b3b3b3;
+$color-black: #000;
+$color-white: #fff;
+
+// Breakpoints
+$breakpoints: (xxxlarge: $xxxlarge, xlarge: $xlarge, xsml: $xsmall, small: $small, largeMobile: $largeMobile, ipad: $ipad, xmedium: $xmedium, large: $large, xxlarge: $xxlarge);

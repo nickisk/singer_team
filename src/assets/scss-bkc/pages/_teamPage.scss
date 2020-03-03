@@ -1,0 +1,251 @@
+.team-section {
+    padding: 130px 0 90px;
+    background-color: $color-secondery;
+    z-index: 2;
+    position: relative;
+
+    .about-team-box {
+
+        .line-heading {
+            margin-top: 35px;
+            margin-left: -90px;
+        }
+
+        .colmn-text {
+            max-width: 565px;
+
+            h2 {
+                font-size: 100px;
+                font-weight: 400;
+                margin-left: -90px;
+                margin-bottom: 50px;
+
+            }
+
+            p {
+                font-weight: 300;
+            }
+
+        }
+
+        .colmn-img {
+            position: absolute;
+            right: 0;
+            top: 130px;
+            width: 700px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+
+            figure {
+                width: calc(50% - 15px);
+
+
+            }
+        }
+    }
+
+
+
+}
+
+.pillars-box {
+    background-color: $color-secondery;
+    padding-bottom: 130px;
+
+    .line-heading {
+        width: 100%;
+    }
+
+    h3 {
+        font-size: 56px;
+        margin-bottom: 20px;
+        font-weight: 400;
+    }
+
+    .colmn-text {
+        width: calc(50% - 50px);
+        margin-top: 50px;
+
+        p {
+            font-weight: 300;
+        }
+    }
+}
+
+.founder-section {
+    padding: 100px 0 120px;
+    position: relative;
+
+    .section-heading {
+        width: 100%;
+        bottom: -90px;
+        left: 0;
+        position: absolute;
+
+        h2 {
+            font-size: 280px;
+            color: $color-primary;
+            font-family: $font-family-freight;
+            text-align: center;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+    }
+
+    .colmn-img {
+        width: 40%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .colmn-text {
+        padding-left: 80px;
+        width: 60%;
+        padding-top: 50px;
+
+        h2 {
+            font-size: 100px;
+            margin-bottom: 50px;
+            margin-top: 30px;
+            font-weight: 400;
+        }
+
+        p {
+            padding-left: 70px;
+            line-height: 1.7;
+            font-weight: 300;
+
+
+            // a {}
+        }
+
+        .btn-arrow {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            font-size: 22px;
+
+            &:after {
+                display: none;
+            }
+        }
+
+    }
+}
+
+.accordion-block {
+    background-color: $color-secondery;
+    position: relative;
+    z-index: 2;
+    padding: 130px 0 140px;
+
+    .line-heading {
+        margin-left: -80px;
+        padding-left: 0;
+
+        &:after {
+            display: none;
+        }
+    }
+
+    .accordion-section {
+        margin-top: 60px;
+    }
+}
+
+.accordion-section {
+    .accordion-box {
+        &:not(:last-of-type) {
+            margin-bottom: 80px;
+        }
+    }
+
+    .accordion-head {
+
+        .heading-box {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            margin-right: 100px;
+            width: calc(100% + 100px);
+
+            &:after {
+                @include center(both);
+                background-color: $color-primary;
+                z-index: -1;
+                width: 100%;
+                height: 2px;
+                content: "";
+            }
+
+            &:before {
+                content: "Open";
+                position: absolute;
+                right: 0;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                background-color: $color-secondery;
+                z-index: 2;
+                font-family: $font-family-body;
+                padding-left: 30px;
+            }
+        }
+
+
+
+        h3 {
+            font-size: 58px;
+            font-weight: 400;
+            background-color: $color-secondery;
+            padding-bottom: 20px;
+            padding-right: 30px;
+        }
+
+        &.active {
+            .heading-box {
+                &:before {
+                    content: "close";
+                }
+            }
+        }
+    }
+
+    .accordion-body {
+        margin-top: 80px;
+        display: none;
+
+        .colmn-img {
+            width: 25%;
+
+        }
+
+        .colmn-text {
+            width: 75%;
+            padding-left: 150px;
+            padding-right: 100px;
+
+            p {
+                font-weight: 300;
+            }
+        }
+
+        &.active {
+            display: block;
+        }
+    }
+}
