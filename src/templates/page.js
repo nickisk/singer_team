@@ -8,12 +8,8 @@ import FounderSection from '../components/blocks/founderSection/founderSection';
 import AccordionSection from '../components/blocks/accordionSection/accordionSection';
 import PropertiesSection from '../components/blocks/propertiesSection/propertiesSection';
 import ContactSection from '../components/blocks/contactSection/contactSection';
-// import Helmet from 'react-helmet'
-// import get from 'lodash/get'
-// import Img from 'gatsby-image'
-// import Layout from '../components/layout'
 
-// import heroStyles from '../components/hero.module.css'
+
 
 class PageTemplate extends React.Component {
 	render() {
@@ -105,6 +101,10 @@ query PageQuery($slug: String!){
 						id
 						subTitle
 						title
+						location {
+							lat
+							lon
+						}
 						detailBoxes {
 						  title
 						  internal {
