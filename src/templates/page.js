@@ -12,6 +12,9 @@ import ContactSection from '../components/blocks/contactSection/contactSection';
 
 
 class PageTemplate extends React.Component {
+	componentDidMount() {
+
+	}
 	render() {
 		console.log(this.props.data)
 		const sectionDetails = this.props.data.allContentfulNavigation.edges[0].node.page.blocks;

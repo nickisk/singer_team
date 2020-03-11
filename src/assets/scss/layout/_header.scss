@@ -6,6 +6,8 @@ header {
     z-index: 9;
 
     .container {
+        max-width: unset;
+
         @include breakpoint(xmedium) {
             padding: 0px 15px;
         }

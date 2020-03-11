@@ -3,7 +3,7 @@ import arrowIcon from '../../../assets/images/arrow-icon.svg';
 
 const cardBox = (props) => {
 	return (
-		<div class="box">
+		<a href={props.data.cardLink} class="box">
 			{console.log(props)}
 			<figure>
 				<img src={props.data.cardImage.fluid.src} />
@@ -16,9 +16,9 @@ const cardBox = (props) => {
 
 					}} />
 
-				<a href={props.data.cardLink} class="box-btn"><img src={arrowIcon} /></a>
+				<span class="box-btn"><img src={arrowIcon} /></span>
 			</div>
-		</div>
+		</a>
 	)
 }
 

@@ -4,6 +4,7 @@
         color: $color-primary;
         font-size: 32px;
         position: relative;
+
         @include breakpoint(xmedium) {
             font-size: 22px;
         }
@@ -16,11 +17,12 @@
             background-repeat: no-repeat;
             background-position: center;
             height: 22px;
-            width: 35px;
+            width: 25px;
             content: "";
-            bottom: 10px;
+            bottom: 7px;
             -webkit-transition: all 0.3s;
             transition: all 0.3s;
+
             @include breakpoint(xmedium) {
                 height: 16px;
                 width: 25px;

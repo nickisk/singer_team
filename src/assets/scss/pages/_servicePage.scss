@@ -42,15 +42,19 @@
     margin-top: -65px;
     background-color: transparent;
     margin-bottom: 100px;
+
     @include breakpoint(large) {
         padding: 0 40px;
     }
+
     @include breakpoint(xmedium) {
         margin-bottom: 30px;
     }
+
     @include breakpoint(small) {
         margin-bottom: 140px;
     }
+
     @include breakpoint(largeMobile) {
         padding: 0 20px;
     }
@@ -62,6 +66,7 @@
 
     .accordion-section {
         margin-top: 0;
+
         @include breakpoint(large) {
             padding-left: 0;
         }
@@ -71,27 +76,37 @@
                 @include breakpoint(large) {
                     margin-bottom: 50px;
                 }
+
                 @include breakpoint(xmedium) {
                     margin-bottom: 30px;
                 }
+
                 @include breakpoint(small) {
                     margin-bottom: 70px;
                 }
             }
+
             &:nth-of-type(1) {
                 .accordion-body {
                     .align-center {
+                        -webkit-box-align: start;
+                        -ms-flex-align: start;
                         align-items: flex-start;
                     }
                 }
             }
+
             &:nth-of-type(2) {
                 .accordion-body {
                     padding-left: 150px;
                     width: 100%;
+                    padding-right: 50px;
+
                     @include breakpoint(xlarge) {
                         padding-left: 80px;
+                        padding-right: 0;
                     }
+
                     @include breakpoint(xmedium) {
                         padding-left: 0px;
                     }
@@ -105,9 +120,11 @@
                     .text-box {
                         width: calc(50% - 60px);
                         margin-bottom: 40px;
+
                         @include breakpoint(xmedium) {
                             width: calc(50% - 30px);
                         }
+
                         @include breakpoint(small) {
                             width: 100%;
                             margin-bottom: 25px;
@@ -129,6 +146,7 @@
             .text-box {
                 width: 600px;
                 margin-top: 30px;
+
                 @include breakpoint(small) {
                     width: 100%;
                 }
@@ -160,9 +178,11 @@
                     left: auto;
                     top: 65px;
                     right: 200px;
+
                     @include breakpoint(xmedium) {
                         width: calc(100% - 420px);
                     }
+
                     @include breakpoint(small) {
                         width: 80%;
                         top: calc(100% + 40px);
@@ -179,6 +199,7 @@
                     top: 0;
                     -webkit-transform: translateY(0);
                     transform: translateY(0);
+
                     @include breakpoint(small) {
                         font-size: 20px;
                         top: calc(100% + 28px);
@@ -194,6 +215,7 @@
                 width: 510px;
                 font-size: 100px;
                 padding: 0;
+
                 @include breakpoint(xmedium) {
                     font-size: 50px;
                     line-height: 1.2;
@@ -207,6 +229,7 @@
         .accordion-body {
             width: 600px;
             margin-top: 50px;
+
             @include breakpoint(small) {
                 width: 100%;
             }
@@ -229,6 +252,7 @@
             .text-box {
                 width: 50%;
                 margin-bottom: 30px;
+
                 @include breakpoint(xmedium) {
                     width: 100%;
                     margin-bottom: 20px;
@@ -244,9 +268,11 @@
                     font-weight: 300;
                     margin-bottom: 15px;
                     font-size: 48px;
+
                     @include breakpoint(xlarge) {
                         font-size: 40px;
                     }
+
                     @include breakpoint(xmedium) {
                         font-size: 28px;
                     }
@@ -256,6 +282,7 @@
                     font-size: 18px;
                     font-weight: 300;
                     margin-bottom: 10px;
+
                     @include breakpoint(xmedium) {
                         font-size: 15px;
                     }
@@ -268,6 +295,7 @@
                     margin-bottom: 10px;
                     padding-left: 14px;
                     position: relative;
+
                     @include breakpoint(xmedium) {
                         font-size: 15px;
                     }
