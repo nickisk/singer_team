@@ -1,0 +1,39 @@
+.blog-page {
+    padding-top: 180px;
+    padding-bottom: 50px;
+
+    .blog-box {
+        width: calc(50% - 60px);
+        margin-bottom: 50px;
+
+        h2 {
+            font-size: 48px;
+            font-family: $font-family-freight;
+            font-weight: 400;
+            position: relative;
+            margin: 20px 0 10px;
+
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .text-box {
+            position: relative;
+
+            .arrow-btn {
+                position: absolute;
+                top: 15px;
+                right: 0;
+            }
+        }
+
+        .content {
+            height: 60px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+        }
+    }
+}

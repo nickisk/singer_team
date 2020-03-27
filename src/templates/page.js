@@ -8,7 +8,7 @@ import FounderSection from '../components/blocks/founderSection/founderSection';
 import AccordionSection from '../components/blocks/accordionSection/accordionSection';
 import PropertiesSection from '../components/blocks/propertiesSection/propertiesSection';
 import ContactSection from '../components/blocks/contactSection/contactSection';
-
+import BlogDetail from '../components/blocks/blogDetail/blogDetail'
 
 
 class PageTemplate extends React.Component {
@@ -34,6 +34,8 @@ class PageTemplate extends React.Component {
 					return <PropertiesSection sectionDetail={detail} />
 				case "ContentfulContactSection":
 					return <ContactSection sectionDetail={detail} />
+				case "ContentfulBlogDetail":
+					return <BlogDetail sectionDetail={detail} />;
 				default:
 					return detail;
 			}
@@ -426,6 +428,25 @@ query PageQuery($slug: String!){
 						fluid {
 						  src
 						}
+					  }
+					}
+				  }
+				  ... on ContentfulBlogDetail {
+					id
+					image {
+					  fluid {
+						src
+					  }
+					}
+					authorName
+					title
+					date(formatString: "")
+					internal {
+					  type
+					}
+					description {
+					  childMarkdownRemark {
+						html
 					  }
 					}
 				  }
