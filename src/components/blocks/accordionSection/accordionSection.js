@@ -26,7 +26,7 @@ class accordionSection extends Component {
 				{console.log(this.props)}
 				<div className="container">
 					<h4 className="line-heading">{this.props.sectionDetail.subHeading}</h4>
-					<div class="accordion-section">
+					<div className="accordion-section">
 						{this.props.sectionDetail.contentBoxes.map((box, key) => (
 							<div key={key} className="accordion-box">
 								<div onClick={() => this.showHendler(key)} className={this.state.showItems == key ? "accordion-head active" : "accordion-head"}>
