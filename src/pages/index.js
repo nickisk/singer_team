@@ -13,6 +13,7 @@ class RootIndex extends Component {
 		const sectionDetail = this.props.data.allContentfulNavigation.edges[0].node.page.blocks[0]
 		return (
 			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+				<Helmet title="The Singer Team || Home" />
 				<div className="contentful-block">
 					<BannerSection sectionDetail={sectionDetail} />
 				</div>

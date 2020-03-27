@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet';
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout';
@@ -16,23 +16,30 @@ class Blog extends Component {
 					<div className="container">
 						<div className="flex space-between">
 							{blogs.map((blog, key) => (
+
 								<div key={key} className="blog-box">
-									<figure>
-										<img src={blog.image.fluid.src}></img>
-									</figure>
-									<div className="text-box">
-										<h2>{blog.title}</h2>
-										<div className="arrow-btn">
-											<img src={arrowIcon} />
-										</div>
-										<div className="content" dangerouslySetInnerHTML={{
-											__html: blog.description.childMarkdownRemark.html
+									<Link to={blog.url}>
+										<div>
+											<figure>
+												<img src={blog.image.fluid.src}></img>
+											</figure>
+											<div className="text-box">
+												<h2>{blog.title}</h2>
+												<div className="arrow-btn">
+													<img src={arrowIcon} />
+												</div>
+												<div className="content" dangerouslySetInnerHTML={{
+													__html: blog.description.childMarkdownRemark.html
 
-										}}>
+												}}>
 
+												</div>
+											</div>
 										</div>
-									</div>
+									</Link>
 								</div>
+
+
 							))}
 
 						</div>
@@ -106,6 +113,7 @@ export const pageQuery = graphql`
 						}
 						authorName
 						title
+						url
 						date(formatString: "")
 						internal {
 						  type

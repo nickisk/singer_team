@@ -94,10 +94,12 @@ header {
             opacity: 0;
             -webkit-transition: all 0.5s;
             transition: all 0.5s;
+            visibility: hidden;
 
             &.active {
                 opacity: 1;
                 z-index: 9;
+                visibility: visible;
             }
         }
 

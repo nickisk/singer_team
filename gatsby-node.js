@@ -56,14 +56,12 @@ exports.createPages = ({ graphql, actions }) => {
 			graphql(
 				`
         {
-            allContentfulNavigation {
+            allContentfulBlogDetail {
               edges {
                 node {
                   title
 				  url
-				  page {
-                    id
-                  }
+				  
                 }
               }
             }
@@ -85,7 +83,7 @@ exports.createPages = ({ graphql, actions }) => {
 						path: `${page.node.url}/`,
 						component: blogPost,
 						context: {
-							slugs: page.node.url
+							slug: page.node.url
 						},
 					})
 

@@ -1,14 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout'
-import BannerSection from '../components/blocks/bannerSection/bannerSection';
-import TeamSection from '../components/blocks/teamSection/teamSection';
-import PillarSection from '../components/blocks/pillarSection/pillarSection';
-import FounderSection from '../components/blocks/founderSection/founderSection';
-import AccordionSection from '../components/blocks/accordionSection/accordionSection';
-import PropertiesSection from '../components/blocks/propertiesSection/propertiesSection';
-import ContactSection from '../components/blocks/contactSection/contactSection';
-import BlogDetail from '../components/blocks/blogDetail/blogDetail'
 
 
 class blogDetailTemplate extends React.Component {
@@ -17,35 +10,26 @@ class blogDetailTemplate extends React.Component {
 	}
 	render() {
 		console.log(this.props.data)
-		// const sectionDetails = this.props.data.allContentfulNavigation.edges[0].node.page.blocks;
-		// const blocks = sectionDetails.map(detail => {
-		// 	switch (detail.internal.type) {
-		// 		case "ContentfulBannerBlock":
-		// 			return <BannerSection sectionDetail={detail} />
-		// 		case "ContentfulTeamBlock":
-		// 			return <TeamSection sectionDetail={detail} />
-		// 		case "ContentfulPillarBlock":
-		// 			return <PillarSection sectionDetail={detail} />
-		// 		case "ContentfulFounderBlock":
-		// 			return <FounderSection sectionDetail={detail} />
-		// 		case "ContentfulAccordionBlock":
-		// 			return <AccordionSection sectionDetail={detail} />
-		// 		case "ContentfulPropertiesBlock":
-		// 			return <PropertiesSection sectionDetail={detail} />
-		// 		case "ContentfulContactSection":
-		// 			return <ContactSection sectionDetail={detail} />
-		// 		case "ContentfulBlogDetail":
-		// 			return <BlogDetail sectionDetail={detail} />;
-		// 		default:
-		// 			return detail;
-		// 	}
-		// })
 
+		const blogData = this.props.data.allContentfulBlogDetail.edges[0].node
 		return (
 			<div>
 
 				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+					<Helmet title={blogData.title} />
+					<div className="blog-detail-section">
+						<div className="container">
+							<h3>July 22 - Written By {blogData.authorName}</h3>
+							<h1>{blogData.title}</h1>
+							<figure>
+								<img src={blogData.image.fluid.src} />
+							</figure>
+							<div className="content" dangerouslySetInnerHTML={{
+								__html: blogData.description.childMarkdownRemark.html
 
+							}}></div>
+						</div>
+					</div>
 				</DefaultLayout>
 			</div>
 		)
@@ -54,7 +38,7 @@ class blogDetailTemplate extends React.Component {
 
 export default blogDetailTemplate
 export const pageQuery = graphql`
-query BlogDetailQuery($slugs: String!){
+query BlogDetailQuery($slug: String!){
     site {
       siteMetadata {
         title
@@ -94,7 +78,29 @@ query BlogDetailQuery($slugs: String!){
 			}
 		  }
 		}
-      }
+	  }
+	  allContentfulBlogDetail(filter: {url: {eq: $slug}}){
+		edges{
+			node {
+				image {
+					fluid {
+					  src
+					}
+				  }
+				  authorName
+				  title
+				  date(formatString: "")
+				  internal {
+					type
+				  }
+				  description {
+					childMarkdownRemark {
+					  html
+					}
+				  }
+			  }
+		}
+	  }
   }
 
 `

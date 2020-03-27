@@ -31,6 +31,10 @@ a {
     &.small {
         max-width: $container-sm;
     }
+
+    @include breakpoint(small) {
+        padding: 0px 15px;
+    }
 }
 
 .sec_space {
@@ -145,6 +149,7 @@ sup {
     padding-left: 100px;
     position: relative;
     margin-bottom: 0;
+
     @include breakpoint(xmedium) {
         font-size: 20px;
         padding-left: 70px;
@@ -157,6 +162,7 @@ sup {
         width: 80px;
         height: 2px;
         background-color: $color-primary;
+
         @include breakpoint(xmedium) {
             width: 60px;
         }

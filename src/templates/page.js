@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 import DefaultLayout from '../components/layouts/defaultLayout/defaultLayout'
 import BannerSection from '../components/blocks/bannerSection/bannerSection';
 import TeamSection from '../components/blocks/teamSection/teamSection';
@@ -45,6 +46,7 @@ class PageTemplate extends React.Component {
 			<div>
 
 				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+					<Helmet title={`The Singer Team || ${this.props.data.allContentfulNavigation.edges[0].node.page.title}`} />
 					{blocks}
 				</DefaultLayout>
 			</div>
@@ -101,6 +103,7 @@ query PageQuery($slug: String!){
 			node {
 			  url
 			  page {
+				title
 				blocks {
 					... on ContentfulContactSection {
 						id

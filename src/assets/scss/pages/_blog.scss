@@ -1,10 +1,30 @@
 .blog-page {
     padding-top: 180px;
     padding-bottom: 50px;
+    position: relative;
+
+
+    @include breakpoint(xmedium) {
+        padding-top: 100px;
+        padding-bottom: 0px;
+    }
 
     .blog-box {
         width: calc(50% - 60px);
         margin-bottom: 50px;
+
+        @include breakpoint(large) {
+            width: calc(50% - 30px);
+        }
+
+        @include breakpoint(xmedium) {
+            width: calc(50% - 15px);
+        }
+
+        @include breakpoint(small) {
+            width: 100%;
+            margin-bottom: 40px;
+        }
 
         h2 {
             font-size: 48px;
@@ -13,10 +33,18 @@
             position: relative;
             margin: 20px 0 10px;
 
+            @include breakpoint(xmedium) {
+                font-size: 30px;
+            }
+
         }
 
         p {
             font-size: 18px;
+
+            @include breakpoint(xmedium) {
+                font-size: 15px;
+            }
         }
 
         .text-box {
@@ -26,14 +54,81 @@
                 position: absolute;
                 top: 15px;
                 right: 0;
+
+                @include breakpoint(xmedium) {
+                    top: 8px;
+                }
             }
         }
 
         .content {
             height: 60px;
             overflow: hidden;
-            text-overflow: ellipsis;
 
+            @include breakpoint(xmedium) {
+                height: 70px;
+            }
+        }
+    }
+}
+
+.blog-detail-section {
+    padding-top: 200px;
+
+    @include breakpoint(xmedium) {
+        padding-top: 150px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    @include breakpoint(small) {
+        padding-top: 100px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    h3 {
+        font-size: 32px;
+        font-family: $font-family-freight;
+        color: $color-primary;
+        text-align: center;
+        font-weight: 400;
+
+        @include breakpoint(xmedium) {
+            font-size: 20px;
+        }
+    }
+
+    h1 {
+        font-size: 100px;
+        text-align: center;
+        line-height: 1.5;
+        font-weight: 400;
+        margin-bottom: 20px;
+
+        @include breakpoint(xmedium) {
+            font-size: 50px;
+        }
+
+        @include breakpoint(small) {
+            font-size: 40px;
+            line-break: 1;
+        }
+    }
+
+    .content {
+        padding: 70px 100px;
+
+        @include breakpoint(xmedium) {
+            padding: 40px 20px;
+
+            p {
+                font-size: 15px;
+            }
+        }
+
+        @include breakpoint(small) {
+            padding: 15px 0 50px;
         }
     }
 }
