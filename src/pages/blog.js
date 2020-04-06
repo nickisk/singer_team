@@ -66,6 +66,7 @@ export const pageQuery = graphql`
 		edges {
 		  node {
 			footer {
+			  showFooter
 			  footerNavigation {
 				title
 				url

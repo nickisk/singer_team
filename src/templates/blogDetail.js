@@ -48,6 +48,7 @@ query BlogDetailQuery($slug: String!){
 		edges {
 		  node {
 			footer {
+				showFooter
 			  footerNavigation {
 				title
 				url
