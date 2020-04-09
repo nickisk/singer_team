@@ -12,7 +12,7 @@ class DefaultLayout extends React.Component {
 		return <Holder>
 			<Header headerData={this.props.headerData} />
 			{this.props.children}
-			<Footer footerData={this.props.footerData} />
+			<Footer showFooter={this.props.showFooter} footerData={this.props.footerData} />
 		</Holder>
 
 	}

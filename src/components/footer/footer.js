@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default ({ footerData }) => (
-	<footer style={{ display: footerData.showFooter ? 'block' : 'none' }}>
+export default ({ footerData, showFooter }) => (
+	<footer style={{ display: showFooter == false ? 'none' : 'block' }}>
 		{console.log(footerData)}
 		<div className="container">
 			<div className="flex">

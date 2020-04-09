@@ -11,7 +11,8 @@ class Blog extends Component {
 		const blogs = this.props.data.allContentfulNavigation.edges[0].node.page.blocks
 		console.log(blogs)
 		return (
-			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} showFooter={this.props.data.allContentfulNavigation.edges[0].node.page.showFooter} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+				<Helmet title={`The Singer Team || ${this.props.data.allContentfulNavigation.edges[0].node.title}`} />
 				<div className="blog-page">
 					<div className="container">
 						<div className="flex space-between">
@@ -66,7 +67,6 @@ export const pageQuery = graphql`
 		edges {
 		  node {
 			footer {
-			  showFooter
 			  footerNavigation {
 				title
 				url
@@ -103,7 +103,9 @@ export const pageQuery = graphql`
         edges {
 			node {
 			  url
+			  title
 			  page {
+				showFooter
 				blocks {
 					... on ContentfulBlogDetail {
 						id

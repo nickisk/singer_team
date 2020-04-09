@@ -45,7 +45,7 @@ class PageTemplate extends React.Component {
 		return (
 			<div>
 
-				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} showFooter={this.props.data.allContentfulNavigation.edges[0].node.page.showFooter} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 					<Helmet title={`The Singer Team || ${this.props.data.allContentfulNavigation.edges[0].node.page.title}`} />
 					{blocks}
 				</DefaultLayout>
@@ -66,7 +66,6 @@ query PageQuery($slug: String!){
 		edges {
 		  node {
 			footer {
-				showFooter
 			  footerNavigation {
 				title
 				url
@@ -104,6 +103,7 @@ query PageQuery($slug: String!){
 			node {
 			  url
 			  page {
+				showFooter
 				title
 				blocks {
 					... on ContentfulContactSection {

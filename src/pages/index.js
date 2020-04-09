@@ -12,7 +12,7 @@ class RootIndex extends Component {
 		console.log(this.props.data)
 		const sectionDetail = this.props.data.allContentfulNavigation.edges[0].node.page.blocks[0]
 		return (
-			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+			<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} showFooter={this.props.data.allContentfulNavigation.edges[0].node.page.showFooter} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 				<Helmet title="The Singer Team || Home" />
 				<div className="contentful-block">
 					<BannerSection sectionDetail={sectionDetail} />
@@ -37,7 +37,6 @@ export const pageQuery = graphql`
 		edges {
 		  node {
 			footer {
-			showFooter
 			  footerNavigation {
 				title
 				url
@@ -75,6 +74,7 @@ export const pageQuery = graphql`
 			node {
 			  url
 			  page {
+				showFooter
 				blocks {
 				  ... on ContentfulBannerBlock {
 					id

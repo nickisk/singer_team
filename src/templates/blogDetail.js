@@ -15,7 +15,7 @@ class blogDetailTemplate extends React.Component {
 		return (
 			<div>
 
-				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
+				<DefaultLayout headerData={this.props.data.allContentfulLayout.edges[0].node.header} showFooter={this.props.data.allContentfulBlogDetail.edges[0].node.showFooter} footerData={this.props.data.allContentfulLayout.edges[0].node.footer}>
 					<Helmet title={blogData.title} />
 					<div className="blog-detail-section">
 						<div className="container">
@@ -44,6 +44,7 @@ query BlogDetailQuery($slug: String!){
         title
       }
 	}
+	
 	allContentfulLayout {
 		edges {
 		  node {
@@ -83,6 +84,7 @@ query BlogDetailQuery($slug: String!){
 	  allContentfulBlogDetail(filter: {url: {eq: $slug}}){
 		edges{
 			node {
+				showFooter
 				image {
 					fluid {
 					  src
