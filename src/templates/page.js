@@ -10,6 +10,7 @@ import AccordionSection from '../components/blocks/accordionSection/accordionSec
 import PropertiesSection from '../components/blocks/propertiesSection/propertiesSection';
 import ContactSection from '../components/blocks/contactSection/contactSection';
 import BlogDetail from '../components/blocks/blogDetail/blogDetail'
+import Block from '../components/blocks/block';
 
 
 class PageTemplate extends React.Component {
@@ -33,10 +34,11 @@ class PageTemplate extends React.Component {
 					return <AccordionSection sectionDetail={detail} />
 				case "ContentfulPropertiesBlock":
 					return <PropertiesSection sectionDetail={detail} />
-				case "ContentfulContactSection":
-					return <ContactSection sectionDetail={detail} />
+
 				case "ContentfulBlogDetail":
 					return <BlogDetail sectionDetail={detail} />;
+				case "ContentfulBlock":
+					return <Block sectionDetail={detail} />
 				default:
 					return detail;
 			}
@@ -106,28 +108,53 @@ query PageQuery($slug: String!){
 				showFooter
 				title
 				blocks {
-					... on ContentfulContactSection {
+					... on ContentfulBlock {
 						id
-						subTitle
-						title
-						location {
-							lat
-							lon
-						}
-						detailBoxes {
-						  title
-						  internal {
-							type
-						  }
-						  contentBox {
-							url
-							title
-						  }
-						}
+						class
 						internal {
 						  type
 						}
-					}
+						blockItems {
+						  ... on ContentfulContentBox {
+							id
+							content {
+							  childMarkdownRemark {
+								html
+							  }
+							}
+							internal {
+							  type
+							}
+						  }
+						  ... on ContentfulImageHolder {
+							id
+							image {
+							  file {
+								url
+							  }
+							}
+							internal {
+							  type
+							}
+						  }
+						  ... on ContentfulTextBlock {
+							id
+							title
+							link {
+								title
+								url
+							  }
+							content {
+							childMarkdownRemark {
+								html
+							}
+							}
+							internal {
+							  type
+							}
+						  }
+						}
+					  }
 				 	 ... on ContentfulBannerBlock {
 						id
 						title

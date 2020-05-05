@@ -2,6 +2,88 @@
     position: relative;
     overflow: hidden;
 
+    &.success-banner {
+
+        figure {
+            height: 600px !important;
+
+            @include breakpoint(large) {
+                // height: auto !important;
+                width: 100%;
+                max-width: 100% !important;
+                height: 100% !important;
+
+            }
+
+            @include breakpoint(xmedium) {
+                padding: 0 !important;
+            }
+        }
+
+        .section-heading {
+            bottom: -125px;
+
+            h2 {
+                font-size: 320px;
+
+
+            }
+
+            @include breakpoint(large) {
+                bottom: -80px;
+
+                h2 {
+                    font-size: 250px;
+                }
+            }
+
+            @include breakpoint(xmedium) {
+                position: absolute;
+                bottom: -40px;
+                padding: 0;
+                margin-bottom: 0;
+
+                h2 {
+                    font-size: 150px;
+                    letter-spacing: 10px;
+                }
+            }
+
+            @include breakpoint(small) {
+                bottom: -30px;
+
+                h2 {
+                    font-size: 100px;
+                }
+            }
+
+            @include breakpoint(xsml) {
+                bottom: -20px;
+
+                h2 {
+                    font-size: 70px;
+                }
+            }
+        }
+    }
+
+    &.contact-banner {
+        .colmn-text {
+            ul {
+                li {
+                    list-style: none;
+                    line-height: 1.5;
+                    width: 166px;
+
+                    &:last-of-type {
+                        margin-top: 30px;
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+    }
+
     &.service-banner {
         padding: 170px 0;
         background-color: #eaf4ff;

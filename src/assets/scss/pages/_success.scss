@@ -1,0 +1,110 @@
+.sold-section {
+    padding-top: 100px;
+
+    @include breakpoint(xmedium) {
+        padding-top: 70px;
+    }
+
+    .textbox {
+        h2 {
+            font-size: 32px;
+            color: $color-primary;
+            margin-bottom: 30px;
+
+            @include breakpoint(xmedium) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    ul {
+        border-top: solid 1px #E5EFFF;
+        border-bottom: solid 1px #E5EFFF;
+        padding: 50px 0;
+        margin-top: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+        @include breakpoint(xmedium) {
+            padding: 30px 0;
+        }
+
+        @include breakpoint(small) {
+            padding: 15px 0;
+            margin-top: 15px;
+        }
+
+        li {
+            list-style: none;
+            width: 25%;
+            margin-bottom: 10px;
+
+            @include breakpoint(xmedium) {
+                width: 33.33%;
+            }
+
+            @include breakpoint(small) {
+                width: 50%;
+                font-size: 14px;
+            }
+
+            @include breakpoint(xsml) {
+                width: 100%;
+            }
+
+        }
+    }
+}
+
+.press-section {
+    padding-top: 50px;
+
+    .textbox {
+        h2 {
+            font-size: 32px;
+            color: $color-primary;
+            margin-bottom: 30px;
+
+            @include breakpoint(xmedium) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    ul {
+        padding: 50px 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+        @include breakpoint(xmedium) {
+            padding: 30px 0;
+        }
+
+        li {
+            list-style: none;
+            width: 25%;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 0px 20px;
+
+            @include breakpoint(xmedium) {
+                width: 33.33%;
+            }
+
+            @include breakpoint(small) {
+                width: 50%;
+            }
+        }
+
+
+    }
+}
